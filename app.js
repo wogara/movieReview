@@ -1,26 +1,22 @@
-var express    = require('express'),
-	app        = express(),
-	bodyParser = require('body-parser'),
-	mongoose   = require('mongoose'),
-	passport   = require("passport"),
-	Movie = require('./models/movie'),
-	Comment    = require("./models/comment"),
-	seedDB     = require("./seeds"),
-	User       = require("./models/user"),
-	LocalStrategy = require("passport-local");
+var express            = require('express'),
+	app            = express(),
+	bodyParser     = require('body-parser'),
+	mongoose       = require('mongoose'),
+	passport       = require("passport"),
+	Movie          = require('./models/movie'),
+	Comment        = require("./models/comment"),
+	User           = require("./models/user"),
+	LocalStrategy  = require("passport-local");
 	methodOverride = require("method-override");
-	flash      = require('connect-flash');
+	flash          = require('connect-flash');
 
-var commentRoutes = require("./routes/comments"),
-	movieRoutes = require("./routes/movies");
-	indexRoutes = require("./routes/index");
+var commentRoutes      = require("./routes/comments"),
+	movieRoutes    = require("./routes/movies");
+	indexRoutes    = require("./routes/index");
 
 
+var url = process.env.DATABASEURL;
 
-//seedDB();
-var url = process.env.DATABASEURL || "mongodb+srv://wogara:Quaresma7!@cluster0-tsjiz.mongodb.net/test?retryWrites=true&w=majority";
-//mongoose.connect("mongodb://localhost/yelp_camp",{useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true });//{ useNewUrlParser: true });
-//mongoose.connect("mongodb+srv://wogara:Quaresma7!@cluster0-tsjiz.mongodb.net/test?retryWrites=true&w=majority",{
 mongoose.connect(url,{
 	useNewUrlParser: true,
 	useCreateIndex: true
