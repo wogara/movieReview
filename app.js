@@ -15,7 +15,7 @@ var commentRoutes      = require("./routes/comments"),
 	indexRoutes    = require("./routes/index");
 
 
-var url = process.env.DATABASEURL;
+var url = process.env.DATABASEURL;//connect your database here, i excluded mine for security reasons
 
 mongoose.connect(url,{
 	useNewUrlParser: true,
